@@ -58,3 +58,62 @@ body {
     }
   }
 }
+
+.CardInfo {
+  box-shadow: 0px 0px 15px 0px rgba(179, 179, 179, 1);
+  border-radius: 5px;
+  width: 1400px;
+  margin: 5rem auto 0;
+
+  .top-row {
+    //  width: 0%;
+    display: flex;
+    //  border: 1px solid red;
+
+    .img-single {
+      width: 55%;
+      height: 40vh;
+      border: 1px solid red;
+      img {
+        width: 100%;
+      }
+    }
+
+    .ingredients {
+      // border: 1px solid blue;
+      width: 40%;
+      margin-top: 1rem;
+      margin-left: 5rem;
+
+      ul {
+        //   width: 100%;
+        li {
+          width: 100%;
+          margin-bottom: 0.7rem;
+          //  border-bottom: 1px solid red;
+          text-transform: capitalize;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  .health {
+    //  border: 1px solid blue;
+    width: 50%;
+    //  margin-top: 1rem;
+
+    p {
+      font-size: 1.1rem;
+      margin: 0.7rem 0 0 1rem;
+    }
+
+    span {
+      display: inline-block;
+      padding: 0.5rem 1rem 0.5rem;
+      // margin-top: 1rem;
+      font-size: 1.1rem;
+      margin: 0.3rem 0 1rem;
+    }
+  }
+}

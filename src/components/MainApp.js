@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import Card from "./Card";
 import axios from "axios";
 import CardInfo from "./CardInfo";
@@ -34,9 +34,12 @@ const MainApp = () => {
   }, [data]);
   console.log(data);
   return (
-    <div className="Card-container">
-      <Route>
+    <div>
+      <Route exact path="/recipe">
         <Card />
+      </Route>
+      <Route path="/recipe/:id">
+        <CardInfo />
       </Route>
     </div>
   );
