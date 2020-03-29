@@ -1,6 +1,4 @@
 .Card-container {
-  border: 1px solid blue;
-  //   width: 1400px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -34,7 +32,6 @@
         font-size: 0.9rem;
         text-transform: capitalize;
         background: rgb(240, 237, 237);
-        color: #333;
         border-radius: 5px;
         border: 1px solid rgb(218, 215, 215);
       }
@@ -64,6 +61,7 @@
       width: 40%;
       margin-top: 1rem;
       margin-left: 5rem;
+      padding-right: 1rem;
 
       h3 {
         margin: 1rem 0;
@@ -105,14 +103,6 @@
   }
 }
 
-.MainApp {
-  border: 1px solid red;
-  display: flex;
-  flex-wrap: wrap;
-  width: 1400px;
-  margin: 7rem auto 0;
-}
-
 .header-container {
   background: rgb(240, 237, 237);
   height: 8vh;
@@ -120,7 +110,6 @@
   align-items: center;
 
   .header {
-    border: 1px solid red;
     width: 70%;
     margin: 0 auto;
     display: flex;
@@ -132,9 +121,39 @@
     }
     a {
       font-size: 1.1rem;
-      color: #333;
       text-transform: uppercase;
       font-weight: bold;
     }
+  }
+}
+
+form {
+  width: 500px;
+  margin: 3rem auto 0;
+  position: relative;
+
+  input {
+    width: 300px;
+    font-size: 1.1rem;
+    padding: 0.3rem;
+    margin-right: 0.5rem;
+  }
+
+  button {
+    font-size: 1.1rem;
+    padding: 0.3rem 1.5rem;
+    background: rgb(240, 237, 237);
+    border: 1px solid rgb(218, 215, 215);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    position: absolute;
+    top: 2.2rem;
+    left: 0.5rem;
   }
 }

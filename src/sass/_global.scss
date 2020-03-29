@@ -9,6 +9,7 @@
 a {
   text-decoration: none;
   display: inline-block;
+  color: #333;
 }
 
 body {
@@ -22,4 +23,17 @@ img {
 
 span {
   display: inline-block;
+  color: #333;
+}
+
+input,
+button {
+  outline: none;
+}
+
+.MainApp {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: 7rem auto 0;
 }

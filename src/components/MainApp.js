@@ -3,8 +3,8 @@ import { Route, Link } from "react-router-dom";
 import Card from "./Card";
 import axios from "axios";
 import CardInfo from "./CardInfo";
-import HomePage from "./HomePage";
 import Navbar from "./Navbar";
+import MainForm from "./MainForm";
 
 const MainApp = () => {
   const [data, setData] = useState([]);
@@ -38,13 +38,16 @@ const MainApp = () => {
   return (
     <div>
       <Navbar />
+      <Route exact path="/">
+        <MainForm />
+      </Route>
       <div className="MainApp">
-        <Route exact path="/">
+        <Route exact path="/recipe">
           {data.map(item => (
             <Card key={item.recipe.calories} item={item} />
           ))}
         </Route>
-        <Route path="/:id">
+        <Route path="/recipe/:id">
           <CardInfo data={data} />
         </Route>
       </div>

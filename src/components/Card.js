@@ -14,7 +14,7 @@ const Card = ({ item }) => {
 
         <div className="description">
           <h3>{label}</h3>
-          <Link to={`${calories}`}>more information</Link>
+          <Link to={`/recipes${calories}`}>more information</Link>
         </div>
       </div>
     </div>
