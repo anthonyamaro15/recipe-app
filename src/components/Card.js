@@ -2,9 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({ item }) => {
-  //   console.log(item);
   const { label, image, calories } = item.recipe;
-  //   const {id} = useParams();
   return (
     <div className="Card-container">
       <div className="Card">
@@ -14,7 +12,7 @@ const Card = ({ item }) => {
 
         <div className="description">
           <h3>{label}</h3>
-          <Link to={`/recipes${calories}`}>more information</Link>
+          <Link to={`/recipe/${calories}`}>more information</Link>
         </div>
       </div>
     </div>

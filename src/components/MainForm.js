@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as yup from "yup";
 
-const MainForm = () => {
+const MainForm = ({ status, errors, touched, getInput }) => {
+  useEffect(() => {
+    status && getInput(status);
+  }, [status]);
   return (
     <Form>
       <label htmlFor="recipe">
         <Field type="text" name="recipe" id="recipe" />
+        {errors.recipe && touched.recipe && (
+          <p className="error">{errors.recipe}</p>
+        )}
       </label>
       <button type="submit">Search</button>
     </Form>
@@ -21,8 +27,7 @@ export default withFormik({
     recipe: yup.string().required("Input field cannot be empty")
   }),
   handleSubmit: (values, { resetForm, setStatus }) => {
-    console.log(values);
-
+    setStatus(values);
     resetForm();
   }
 })(MainForm);

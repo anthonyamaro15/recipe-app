@@ -2,14 +2,10 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 const CardInfo = ({ data }) => {
-  //   console.log(data);
   const { id } = useParams();
 
-  //   console.log(Number(id).toFixed(4));
-
   const singleCard = data.find(item => item.recipe.calories === Number(id));
-  //   const { image, ingredients, healthLabels } = singleCard;
-  console.log("sin", singleCard.recipe);
+
   return (
     <div className="CardInfo">
       <div className="top-row">
@@ -25,7 +21,11 @@ const CardInfo = ({ data }) => {
           </ul>
           <p>
             Visit{" "}
-            <a href={`${singleCard.recipe.url}`} target="_blank">
+            <a
+              href={`${singleCard.recipe.url}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {singleCard.recipe.source}
             </a>
           </p>
