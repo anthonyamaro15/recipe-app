@@ -6,6 +6,7 @@
 
 a {
   text-decoration: none;
+  display: inline-block;
 }
 
 body {
@@ -87,6 +88,10 @@ body {
       margin-top: 1rem;
       margin-left: 5rem;
 
+      h3 {
+        margin: 1rem 0;
+      }
+
       ul {
         //   width: 100%;
         li {
@@ -95,6 +100,15 @@ body {
           //  border-bottom: 1px solid red;
           text-transform: capitalize;
           font-size: 1.1rem;
+        }
+      }
+
+      p {
+        margin-top: 2rem;
+
+        a {
+          padding: 0.5rem 0.5rem 0.1rem;
+          border-bottom: 1px solid grey;
         }
       }
     }

@@ -17,11 +17,18 @@ const CardInfo = ({ data }) => {
           <img src={singleCard.recipe.image} alt="" />
         </div>
         <div className="ingredients">
+          <h3>Ingredients</h3>
           <ul>
             {singleCard.recipe.ingredientLines.map((ing, i) => (
               <li key={i}>{ing}</li>
             ))}
           </ul>
+          <p>
+            Visit{" "}
+            <a href={`${singleCard.recipe.url}`} target="_blank">
+              {singleCard.recipe.source}
+            </a>
+          </p>
         </div>
       </div>
 
