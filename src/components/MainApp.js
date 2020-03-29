@@ -4,6 +4,7 @@ import Card from "./Card";
 import axios from "axios";
 import CardInfo from "./CardInfo";
 import HomePage from "./HomePage";
+import Navbar from "./Navbar";
 
 const MainApp = () => {
   const [data, setData] = useState([]);
@@ -35,15 +36,18 @@ const MainApp = () => {
   }, [data]);
   console.log(data);
   return (
-    <div className="MainApp">
-      <Route exact path="/">
-        {data.map(item => (
-          <Card key={item.recipe.calories} item={item} />
-        ))}
-      </Route>
-      <Route path="/:id">
-        <CardInfo data={data} />
-      </Route>
+    <div>
+      <Navbar />
+      <div className="MainApp">
+        <Route exact path="/">
+          {data.map(item => (
+            <Card key={item.recipe.calories} item={item} />
+          ))}
+        </Route>
+        <Route path="/:id">
+          <CardInfo data={data} />
+        </Route>
+      </div>
     </div>
   );
 };
