@@ -17,15 +17,21 @@ const MainApp = () => {
 
   useEffect(() => {
     async function getApiData() {
-      const gettingData = await axios.get(
-        `https://api.edamam.com/search?q=${search.recipe}&app_id=${api.ID}&app_key=${api.KEY}`
-      );
+      try {
+        const gettingData = await axios.get(
+          `https://api.edamam.com/search?q=${search.recipe}&app_id=${api.ID}&app_key=${api.KEY}`
+        );
 
-      setData(gettingData.data.hits);
-      history.push("/recipe");
+        setData(gettingData.data.hits);
+        if (search.recipe) {
+          history.push("/recipe");
+        }
+      } catch (err) {
+        console.log(err);
+      }
     }
     getApiData();
-  }, [search]);
+  }, [search, setData]);
 
   const getInput = value => {
     setSearch(value);

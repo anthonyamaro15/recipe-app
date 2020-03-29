@@ -5,7 +5,7 @@ import * as yup from "yup";
 const MainForm = ({ status, errors, touched, getInput }) => {
   useEffect(() => {
     status && getInput(status);
-  }, [status]);
+  }, [status, getInput]);
   return (
     <Form>
       <label htmlFor="recipe">
