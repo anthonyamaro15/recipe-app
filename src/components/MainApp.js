@@ -39,34 +39,24 @@ const MainApp = () => {
     setSearch(value);
   };
 
-  if (loaded) {
-    return (
-      <div>
-        <Navbar />
-
-        <Route exact path="/">
-          <MainForm getInput={getInput} />
+  return (
+    <div>
+      <Navbar />
+      <Route exact path="/">
+        <MainForm getInput={getInput} />
+      </Route>
+      <div className="MainApp">
+        <Route exact path="/recipe">
+          {data.map(item => (
+            <Card key={item.recipe.calories} item={item} />
+          ))}
         </Route>
-        <div className="MainApp">
-          <Route exact path="/recipe">
-            {data.map(item => (
-              <Card key={item.recipe.calories} item={item} />
-            ))}
-          </Route>
-          <Route path="/recipe/:id">
-            <CardInfo data={data} />
-          </Route>
-        </div>
+        <Route path="/recipe/:id">
+          <CardInfo data={data} />
+        </Route>
       </div>
-    );
-  } else {
-    return (
-      <div>
-        <Navbar />
-        <h1>loading...</h1>
-      </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default MainApp;
