@@ -10,6 +10,7 @@ const MainApp = () => {
   const history = useHistory();
   const [data, setData] = useState([]);
   const [search, setSearch] = useState({});
+  const [loaded, setLoaded] = useState(false);
   const [api] = useState({
     ID: "6967c87a",
     KEY: "d4dcd55826cec22b6a58e17472fcd230"
@@ -23,6 +24,7 @@ const MainApp = () => {
         );
 
         setData(gettingData.data.hits);
+        setLoaded(true);
         if (search.recipe) {
           history.push("/recipe");
         }
@@ -37,24 +39,34 @@ const MainApp = () => {
     setSearch(value);
   };
 
-  return (
-    <div>
-      <Navbar />
-      <Route exact path="/">
-        <MainForm getInput={getInput} />
-      </Route>
-      <div className="MainApp">
-        <Route exact path="/recipe">
-          {data.map(item => (
-            <Card key={item.recipe.calories} item={item} />
-          ))}
+  if (loaded) {
+    return (
+      <div>
+        <Navbar />
+
+        <Route exact path="/">
+          <MainForm getInput={getInput} />
         </Route>
-        <Route path="/recipe/:id">
-          <CardInfo data={data} />
-        </Route>
+        <div className="MainApp">
+          <Route exact path="/recipe">
+            {data.map(item => (
+              <Card key={item.recipe.calories} item={item} />
+            ))}
+          </Route>
+          <Route path="/recipe/:id">
+            <CardInfo data={data} />
+          </Route>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div>
+        <Navbar />
+        <h1>loading...</h1>
+      </div>
+    );
+  }
 };
 
 export default MainApp;
