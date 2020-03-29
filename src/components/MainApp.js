@@ -1,46 +1,58 @@
 import React, { useEffect, useState } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 import Card from "./Card";
 import axios from "axios";
 import CardInfo from "./CardInfo";
+import Navbar from "./Navbar";
+import MainForm from "./MainForm";
 
 const MainApp = () => {
+  const history = useHistory();
   const [data, setData] = useState([]);
-  const [search, setSearch] = useState("chicken");
-  const [api, setApi] = useState({
+  const [search, setSearch] = useState({});
+  const [api] = useState({
     ID: "6967c87a",
     KEY: "d4dcd55826cec22b6a58e17472fcd230"
   });
 
-  //   useEffect(() => {
-  //     async function getApiData() {
-  //       const getData = await axios.get(
-  //         `https://api.edamam.com/search?q=${search}&app_id=${api.ID}&app_key=${api.KEY}`
-  //       );
-  //       setData(getData.data.hits);
-  //       console.log(getData.data.hits);
-  //     }
-  //     getApiData();
-  //   }, [search]);
+  useEffect(() => {
+    async function getApiData() {
+      try {
+        const gettingData = await axios.get(
+          `https://api.edamam.com/search?q=${search.recipe}&app_id=${api.ID}&app_key=${api.KEY}`
+        );
 
-  useEffect(() => {
-    const newData = JSON.parse(localStorage.getItem("data"));
-    if (newData) {
-      setData(newData);
+        setData(gettingData.data.hits);
+        if (search.recipe) {
+          history.push("/recipe");
+        }
+      } catch (err) {
+        console.log(err);
+      }
     }
-  }, []);
-  useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(data));
-  }, [data]);
-  console.log(data);
+    getApiData();
+  }, [search, setData]);
+
+  const getInput = value => {
+    setSearch(value);
+  };
+
   return (
     <div>
-      <Route exact path="/recipe">
-        <Card />
+      <Navbar />
+      <Route exact path="/">
+        <MainForm getInput={getInput} />
       </Route>
-      <Route path="/recipe/:id">
-        <CardInfo />
-      </Route>
+      <div className="MainApp">
+        <Route exact path="/recipe">
+          {data.map(item => (
+            <Card key={item.recipe.calories} item={item} />
+          ))}
+        </Route>
+        <Route path="/recipe/:id">
+          <CardInfo data={data} />
+        </Route>
+      </div>
     </div>
   );
 };

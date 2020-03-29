@@ -1,21 +1,5 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-body {
-  color: #333;
-}
-
 .Card-container {
-  border: 1px solid blue;
-  width: 1400px;
-  margin: 5rem auto 0;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -27,13 +11,11 @@ body {
     margin: 0 3rem 4rem 0.5rem;
 
     .img-container {
-      //  border: 1px solid blue;
       width: 100%;
       height: 20vh;
       background: rgba(179, 179, 179, 1);
       img {
-        //  padding: 5rem;
-        width: 100%;
+        height: 20vh;
       }
     }
 
@@ -46,12 +28,10 @@ body {
         width: 150px;
         margin: 1.5rem auto 0.3rem;
         text-align: center;
-        //   border: 1px solid red;
         padding: 0.3rem;
         font-size: 0.9rem;
         text-transform: capitalize;
         background: rgb(240, 237, 237);
-        color: #333;
         border-radius: 5px;
         border: 1px solid rgb(218, 215, 215);
       }
@@ -66,42 +46,49 @@ body {
   margin: 5rem auto 0;
 
   .top-row {
-    //  width: 0%;
     display: flex;
-    //  border: 1px solid red;
 
     .img-single {
       width: 55%;
       height: 40vh;
-      border: 1px solid red;
+
       img {
-        width: 100%;
+        height: 40vh;
       }
     }
 
     .ingredients {
-      // border: 1px solid blue;
       width: 40%;
       margin-top: 1rem;
       margin-left: 5rem;
+      padding-right: 1rem;
+
+      h3 {
+        margin: 1rem 0;
+      }
 
       ul {
-        //   width: 100%;
         li {
           width: 100%;
           margin-bottom: 0.7rem;
-          //  border-bottom: 1px solid red;
           text-transform: capitalize;
           font-size: 1.1rem;
+        }
+      }
+
+      p {
+        margin-top: 2rem;
+
+        a {
+          padding: 0.5rem 0.5rem 0.1rem;
+          border-bottom: 1px solid grey;
         }
       }
     }
   }
 
   .health {
-    //  border: 1px solid blue;
     width: 50%;
-    //  margin-top: 1rem;
 
     p {
       font-size: 1.1rem;
@@ -109,11 +96,64 @@ body {
     }
 
     span {
-      display: inline-block;
       padding: 0.5rem 1rem 0.5rem;
-      // margin-top: 1rem;
       font-size: 1.1rem;
       margin: 0.3rem 0 1rem;
     }
+  }
+}
+
+.header-container {
+  background: rgb(240, 237, 237);
+  height: 8vh;
+  display: flex;
+  align-items: center;
+
+  .header {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+
+    h2 {
+      text-transform: capitalize;
+    }
+    a {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+}
+
+form {
+  width: 500px;
+  margin: 3rem auto 0;
+  position: relative;
+
+  input {
+    width: 300px;
+    font-size: 1.1rem;
+    padding: 0.3rem;
+    margin-right: 0.5rem;
+  }
+
+  button {
+    font-size: 1.1rem;
+    padding: 0.3rem 1.5rem;
+    background: rgb(240, 237, 237);
+    border: 1px solid rgb(218, 215, 215);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    position: absolute;
+    top: 2.2rem;
+    left: 0.5rem;
   }
 }

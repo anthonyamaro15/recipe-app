@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: #333;
+}
+
+body {
+  color: #333;
+  font-family: "Open Sans", sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+span {
+  display: inline-block;
+  color: #333;
+}
+
+input,
+button {
+  outline: none;
+}
+
+.MainApp {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: 7rem auto 0;
+}
