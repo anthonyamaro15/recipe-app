@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 import Card from "./Card";
 import axios from "axios";
 import CardInfo from "./CardInfo";
+import HomePage from "./HomePage";
 
 const MainApp = () => {
   const [data, setData] = useState([]);
@@ -34,12 +35,14 @@ const MainApp = () => {
   }, [data]);
   console.log(data);
   return (
-    <div>
-      <Route exact path="/recipe">
-        <Card />
+    <div className="MainApp">
+      <Route exact path="/">
+        {data.map(item => (
+          <Card key={item.recipe.calories} item={item} />
+        ))}
       </Route>
-      <Route path="/recipe/:id">
-        <CardInfo />
+      <Route path="/:id">
+        <CardInfo data={data} />
       </Route>
     </div>
   );
