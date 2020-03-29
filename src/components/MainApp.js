@@ -10,6 +10,7 @@ const MainApp = () => {
   const history = useHistory();
   const [data, setData] = useState([]);
   const [search, setSearch] = useState({});
+  const [loaded, setLoaded] = useState(false);
   const [api] = useState({
     ID: "6967c87a",
     KEY: "d4dcd55826cec22b6a58e17472fcd230"
@@ -23,6 +24,7 @@ const MainApp = () => {
         );
 
         setData(gettingData.data.hits);
+        setLoaded(true);
         if (search.recipe) {
           history.push("/recipe");
         }

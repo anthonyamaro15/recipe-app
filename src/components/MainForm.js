@@ -9,7 +9,12 @@ const MainForm = ({ status, errors, touched, getInput }) => {
   return (
     <Form>
       <label htmlFor="recipe">
-        <Field type="text" name="recipe" id="recipe" />
+        <Field
+          type="text"
+          name="recipe"
+          id="recipe"
+          placeholder="Search for recipe"
+        />
         {errors.recipe && touched.recipe && (
           <p className="error">{errors.recipe}</p>
         )}
