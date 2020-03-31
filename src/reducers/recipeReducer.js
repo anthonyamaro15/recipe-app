@@ -1,8 +1,5 @@
 const initialValue = {
-  api: {
-    ID: "6967c87a",
-    KEY: "d4dcd55826cec22b6a58e17472fcd230"
-  },
+  ID: "6967c87a",
   recipe: "",
   loading: false,
   data: [],
