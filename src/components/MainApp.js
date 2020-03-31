@@ -14,14 +14,14 @@ const MainApp = () => {
     ...state.recipeReducer
   }));
 
-  const { loading, data, error, recipe, api } = reducer;
+  const { loading, data, error, recipe, ID } = reducer;
 
   useEffect(() => {
     async function getApiData() {
       dispatch({ type: "FETCHING_DATA" });
       try {
         const gettingData = await axios.get(
-          `https://api.edamam.com/search?q=${recipe}&app_id=${api.ID}&app_key=${api.KEY}`
+          `https://api.edamam.com/search?q=${recipe}&app_id=${ID}&app_key=${process.env.REACT_APP_API}`
         );
         dispatch({ type: "RESPONSE_DATA", payload: gettingData.data.hits });
         if (recipe) {
